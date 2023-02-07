@@ -1,0 +1,34 @@
+#!/bin/bash
+sum=0
+for i in $@
+do
+pass=$i
+
+func1(){
+
+if [ -f $pass ]
+then
+echo "$pass is a  file."
+ls -la $pass
+elif [ -d $pass ]
+then
+echo "$pass is a directory."
+ls -la $pass
+else
+echo "file name $pass doesn't exist"
+fi
+
+}
+func1
+
+file_count(){
+
+if [ -f $pass ] 
+then
+sum=$((sum+1))
+fi
+
+echo "file count: $sum"
+}
+file_count
+done
