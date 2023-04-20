@@ -1,0 +1,17 @@
+---
+  - name: Launching the Aws
+    hosts: localhost
+    connection: local
+    tasks:
+      - name: launch ec2
+        amazon.aws.ec2_instance:
+          name: "myec2_02"
+          key_name: "key_01"
+          instance_type: "t2.micro"
+          image_id: "ami-07d3a50bd29811cd1"
+          region: "ap-south-1"
+          security_group: default
+          count: 1
+          vpc_subnet_id: "subnet-049720432ba3795dd"
+          aws_access_key: "{{ my_access_key }}"
+          aws_secret_key: "{{ my_secret_key }}"
